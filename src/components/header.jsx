@@ -1,8 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getTotalCart } from "../redux/productSlice/cartSlice";
+import { useEffect } from "react";
 
 const Header = () => {
-  const items = useSelector((state) => state.allCart.cart.length);
+  const { totalQuantity, cart } = useSelector((state) => state.allCart);
+  const dispatch = useDispatch();
+  useEffect(() => {
+   dispatch(getTotalCart())
+  }, [cart])
+  
   return (
     <header className="bg-gray-300 text-white p-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center relative">
@@ -31,7 +38,7 @@ const Header = () => {
           </Link>
         </nav>
         <div className="bg-red-700 w-7 h-7 rounded-full flex justify-center items-center absolute right-0 -top-2">
-          {items}
+          {totalQuantity}
         </div>
       </div>
     </header>

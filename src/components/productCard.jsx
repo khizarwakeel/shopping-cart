@@ -5,7 +5,7 @@ const ProductCard = () => {
   const items = useSelector((state) => state.allCart.productData);
   const dispatch = useDispatch();
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-6xl mx-auto mt-14 gap-14 px-4">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-6xl mx-auto lg:my-24 my-5 lg:gap-14 gap-8 px-4">
       {items.map((cart, index) => (
         <div
           key={index}
@@ -25,7 +25,7 @@ const ProductCard = () => {
               </h5>
             </a>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {cart.price}$
+              ${cart.price}
             </p>
             <button
               onClick={() => dispatch(addToCart(cart))}
