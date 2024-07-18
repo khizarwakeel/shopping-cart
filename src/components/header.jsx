@@ -18,7 +18,7 @@ const Header = () => {
         </Link>
         <nav className="md:flex space-x-4 relative">
           <Link
-            to={"/product-list"}
+            to={"/products-list"}
             className="bg-amber-950 px-10 py-2 rounded-full block"
           >
             <svg
